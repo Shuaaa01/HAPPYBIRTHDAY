@@ -187,20 +187,6 @@ body {
   }
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #f8f9fa;
-    color: #fb6f92;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .heart {
     animation: blink 1s linear infinite;
