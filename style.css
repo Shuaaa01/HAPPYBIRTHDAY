@@ -1,5 +1,66 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #4a2764;
+}
+
 body {
-  background-color: #f8d5a0;
+  
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(
+      ellipse at top,
+      transparent 0%,
+      var(--dark-color)
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      var(--dark-color),
+      rgba(145, 233, 255, 0.2)
+    ),
+    repeating-linear-gradient(
+      220deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      189deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      148deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    linear-gradient(90deg, rgb(255, 94, 0), rgb(240, 240, 240));
+    z-index: 0;
 }
 
 .candle-count-display {
@@ -10,19 +71,21 @@ body {
   font-size: 30px;
   font-weight: bold;
   color: #f0e4d0;
-  background-color: #ef9920;
+  background-color: #632e6d;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(177, 122, 122, 0.2);
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid #ef9920;
+  border: 2px solid #632e6d;
+  position: absolute;
+  z-index: 10;
 }
 
 .candle-count-display span {
   font-weight: bold;
-  color: #AD030F;
+  color: #632e6d;
 }
 
 .cake {
@@ -41,9 +104,9 @@ body {
   position: absolute;
   bottom: -10px;
   left: -10px;
-  background-color: #ffcb51;
+  background-color: #f2cbae;
   border-radius: 50%;
-  box-shadow: 0 2px 0 #e4b548, 0 4px 0 #e4b548, 0 5px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 0 #ebb4d3, 0 4px 0 #ebb4d3 0 5px 40px rgba(0, 0, 0, 0.5);
 }
 
 .cake > * {
@@ -56,8 +119,8 @@ body {
   width: 250px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ef8e39;
-  box-shadow: 0 2px 0px #864b0b, 0 4px 0px #864b0b, 0 6px 0px #864b0b, 0 8px 0px #864b0b, 0 10px 0px #864b0b, 0 12px 0px #ef8e39, 0 14px 0px #ef8e39, 0 16px 0px #ef8e39, 0 18px 0px #ef8e39, 0 20px 0px #ef8e39, 0 22px 0px #ef8e39, 0 24px 0px #ef8e39, 0 26px 0px #ef8e39, 0 28px 0px #ef8e39, 0 30px 0px #ef8e39;
+  background-color: #db7ca5;
+  box-shadow: 0 2px 0px #923c81, 0 4px 0px #923c81, 0 6px 0px #923c81, 0 8px 0px #923c81, 0 10px 0px #923c81, 0 12px 0px #db7ca5, 0 14px 0px #db7ca5, 0 16px 0px #db7ca5, 0 18px 0px #db7ca5, 0 20px 0px #db7ca5, 0 22px 0px #db7ca5, 0 24px 0px #e2b7ce, 0 26px 0px #e2b7ce, 0 28px 0px #e2b7ce, 0 30px 0px #e2b7ce;
 }
 
 .layer-top {
@@ -75,7 +138,7 @@ body {
 .icing {
   top: 2px;
   left: 5px;
-  background-color: #df832180;
+  background-color: #d380e9;
   width: 240px;
   height: 90px;
   border-radius: 50%;
@@ -87,8 +150,8 @@ body {
   right: 5px;
   bottom: 6px;
   left: 5px;
-  background-color: #ffbe56;
-  box-shadow: 0 0 4px #ffbe56, 0 0 4px #ffbe56, 0 0 4px #ffbe56;
+  background-color: #d380e9;
+  box-shadow: 0 0 4px #d380e9, 0 0 4px #d380e9, 0 0 4px #d380e9;
   border-radius: 50%;
   z-index: 1;
 }
@@ -99,7 +162,7 @@ body {
   height: 60px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  background-color: #ffbe56; 
+  background-color: #d380e9; 
 }
 
 .drip1 {
@@ -125,7 +188,7 @@ body {
 }
 
 .candle {
-  background-color: #7B020B;
+  background-color: #632e6d;
   width: 12px;
   height: 35px;
   border-radius: 6px/3px;
@@ -142,7 +205,7 @@ body {
   width: 12px;
   height: 6px;
   border-radius: 50%;
-  background-color: #ad030f;
+  background-color: #632e6d;
 }
 
 .candle.out .flame {
@@ -151,7 +214,7 @@ body {
 
 .flame {
   position: absolute;
-  background-color: orange;
+  background-color: #dc7070;
   width: 10px;
   height: 25px;
   border-radius: 8px 8px 8px 8px/20px 20px 8px 8px;
@@ -159,7 +222,7 @@ body {
   left: 50%;
   margin-left: -7.5px;
   z-index: 10;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  box-shadow: 0 0 10px rgba(253, 110, 110, 0.5), 0 0 20px rgba(253, 110, 110, 0.5), 0 0 60px rgba(253, 110, 110, 0.5), 0 0 80px rgba(253, 110, 110, 0.5);
   transform-origin: 50% 90%;
   animation: flicker 1s ease-in-out alternate infinite;
 }
@@ -187,15 +250,141 @@ body {
   }
 }
 
-
 .heart {
-    animation: blink 1s linear infinite;
-    width: 16px;
-    height: 16px;
-    margin-left: 5px;
+  fill: transparent;
+  opacity: 0;
 }
-@keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+.bubble:nth-child(1) .heart {
+  -webkit-animation: love 3s forwards infinite 0s;
+  animation: love 3s forwards infinite 0s;
+  -webkit-transform: scale(0.5) rotate(-4deg);
+  transform: scale(0.5) rotate(-4deg);
+}
+.bubble:nth-child(2) .heart {
+  -webkit-animation: love 3s forwards infinite 0.15s;
+  animation: love 3s forwards infinite 0.15s;
+  -webkit-transform: scale(0.5) rotate(22deg);
+  transform: scale(0.5) rotate(22deg);
+}
+.bubble:nth-child(3) .heart {
+  -webkit-animation: love 3s forwards infinite 0.3s;
+  animation: love 3s forwards infinite 0.3s;
+  -webkit-transform: scale(0.5) rotate(-5deg);
+  transform: scale(0.5) rotate(-5deg);
+}
+.bubble:nth-child(4) .heart {
+  -webkit-animation: love 3s forwards infinite 0.45s;
+  animation: love 3s forwards infinite 0.45s;
+  -webkit-transform: scale(0.5) rotate(50deg);
+  transform: scale(0.5) rotate(50deg);
+}
+.bubble:nth-child(5) .heart {
+  -webkit-animation: love 3s forwards infinite 0.6s;
+  animation: love 3s forwards infinite 0.6s;
+  -webkit-transform: scale(0.5) rotate(-29deg);
+  transform: scale(0.5) rotate(-29deg);
+}
+.bubble:nth-child(6) .heart {
+  -webkit-animation: love 3s forwards infinite 0.75s;
+  animation: love 3s forwards infinite 0.75s;
+  -webkit-transform: scale(0.5) rotate(35deg);
+  transform: scale(0.5) rotate(35deg);
+}
+.bubble:nth-child(7) .heart {
+  -webkit-animation: love 3s forwards infinite 0.9s;
+  animation: love 3s forwards infinite 0.9s;
+  -webkit-transform: scale(0.5) rotate(-5deg);
+  transform: scale(0.5) rotate(-5deg);
+}
+.bubble:nth-child(8) .heart {
+  -webkit-animation: love 3s forwards infinite 1.05s;
+  animation: love 3s forwards infinite 1.05s;
+  -webkit-transform: scale(0.5) rotate(40deg);
+  transform: scale(0.5) rotate(40deg);
+}
+.bubble:nth-child(9) .heart {
+  -webkit-animation: love 3s forwards infinite 1.2s;
+  animation: love 3s forwards infinite 1.2s;
+  -webkit-transform: scale(0.5) rotate(-35deg);
+  transform: scale(0.5) rotate(-35deg);
+}
+.bubble:nth-child(10) .heart {
+  -webkit-animation: love 3s forwards infinite 1.35s;
+  animation: love 3s forwards infinite 1.35s;
+  -webkit-transform: scale(0.5) rotate(28deg);
+  transform: scale(0.5) rotate(28deg);
+}
+.bubble:nth-child(11) .heart {
+  -webkit-animation: love 3s forwards infinite 1.5s;
+  animation: love 3s forwards infinite 1.5s;
+  -webkit-transform: scale(0.5) rotate(-3deg);
+  transform: scale(0.5) rotate(-3deg);
+}
+.bubble:nth-child(12) .heart {
+  -webkit-animation: love 3s forwards infinite 1.65s;
+  animation: love 3s forwards infinite 1.65s;
+  -webkit-transform: scale(0.5) rotate(48deg);
+  transform: scale(0.5) rotate(48deg);
+}
+.bubble:nth-child(13) .heart {
+  -webkit-animation: love 3s forwards infinite 1.8s;
+  animation: love 3s forwards infinite 1.8s;
+  -webkit-transform: scale(0.5) rotate(-33deg);
+  transform: scale(0.5) rotate(-33deg);
+}
+.bubble:nth-child(14) .heart {
+  -webkit-animation: love 3s forwards infinite 1.95s;
+  animation: love 3s forwards infinite 1.95s;
+  -webkit-transform: scale(0.5) rotate(40deg);
+  transform: scale(0.5) rotate(40deg);
+}
+.bubble:nth-child(15) .heart {
+  -webkit-animation: love 3s forwards infinite 2.1s;
+  animation: love 3s forwards infinite 2.1s;
+  -webkit-transform: scale(0.5) rotate(-29deg);
+  transform: scale(0.5) rotate(-29deg);
+}
+.bubble:nth-child(16) .heart {
+  -webkit-animation: love 3s forwards infinite 2.25s;
+  animation: love 3s forwards infinite 2.25s;
+  -webkit-transform: scale(0.5) rotate(19deg);
+  transform: scale(0.5) rotate(19deg);
+}
+.bubble:nth-child(17) .heart {
+  -webkit-animation: love 3s forwards infinite 2.4s;
+  animation: love 3s forwards infinite 2.4s;
+  -webkit-transform: scale(0.5) rotate(-29deg);
+  transform: scale(0.5) rotate(-29deg);
+}
+.bubble:nth-child(18) .heart {
+  -webkit-animation: love 3s forwards infinite 2.55s;
+  animation: love 3s forwards infinite 2.55s;
+  -webkit-transform: scale(0.5) rotate(14deg);
+  transform: scale(0.5) rotate(14deg);
+}
+.bubble:nth-child(19) .heart {
+  -webkit-animation: love 3s forwards infinite 2.7s;
+  animation: love 3s forwards infinite 2.7s;
+  -webkit-transform: scale(0.5) rotate(-10deg);
+  transform: scale(0.5) rotate(-10deg);
+}
+.bubble:nth-child(20) .heart {
+  -webkit-animation: love 3s forwards infinite 2.85s;
+  animation: love 3s forwards infinite 2.85s;
+  -webkit-transform: scale(0.5) rotate(46deg);
+  transform: scale(0.5) rotate(46deg);
+}
+
+@-webkit-keyframes love {
+  50% {
+    fill: rgb(222, 19, 253);
+    opacity: 1;
+  }
+}
+
+@keyframes love {
+  50% {
+    fill: rgb(255, 0, 242);
+    opacity: 1;
+  }
 }

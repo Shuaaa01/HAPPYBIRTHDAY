@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let audioContext;
   let analyser;
   let microphone;
-  let audio = new Audio('hbd_hbd.mp3');
+  let audio = new Audio('hbd.mp3');
 
 
   function updateCandleCount() {
@@ -71,12 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // If all candles are blown out, trigger confetti after a small delay
       if (candles.every((candle) => candle.classList.contains("out"))) {
-        setTimeout(function() {
-          triggerConfetti();
-          endlessConfetti(); // Start the endless confetti
-        }, 200);
-        audio.play();
-      }
+  setTimeout(function() {
+    triggerConfetti();
+    endlessConfetti();
+    endlessHearts(); // start floating hearts
+  }, 200);
+  audio.play();
+}
     }
   }
 
@@ -117,4 +118,26 @@ function endlessConfetti() {
       origin: { y: 0 }
     });
   }, 1000);
+}
+
+function spawnHearts() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.textContent = "❤️";
+
+  // random horizontal position
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  // start at bottom
+  heart.style.bottom = "0px";
+
+  document.body.appendChild(heart);
+
+  // remove after animation
+  setTimeout(() => {
+    heart.remove();
+  }, 4000);
+}
+
+function endlessHearts() {
+  setInterval(spawnHearts, 300); // one heart every 300ms
 }
